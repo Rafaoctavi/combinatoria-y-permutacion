@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+// Función para calcular el factorial de un número
+long long factorial(int n) {
+  long long resultado = 1;
+  for (int i = 2; i <= n; i++) {
+    resultado *= i;
+  }
+  return resultado;
+}
+
+// Función para calcular la combinatoria de n elementos tomados k a k
+long long combinatoria(int n, int k) {
+  return factorial(n) / (factorial(k) * factorial(n - k));
+}
+
+// Función para calcular la permutación de n elementos tomados k a k
+long long permutacion(int n, int k) {
+  return factorial(n) / factorial(n - k);
+}
+
+int main() {
+  int n, k;
+  cout << "Ingrese el número de elementos (n): ";
+  cin >> n;
+  cout << "Ingrese el número de elementos a tomar (k): ";
+  cin >> k;
+
+  cout << "Combinatoria de " << n << " elementos tomados " << k << " a " << k << ": " << combinatoria(n, k) << endl;
+  cout << "Permutación de " << n << " elementos tomados " << k << " a " << k << ": " << permutacion(n, k) << endl;
+
+  return 0;
+}
